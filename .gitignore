@@ -1,0 +1,27 @@
+ 🔒 Sensitive files
+ db.properties
+ .env
+
+ 🏗️ Compiled Java class files
+ .class
+
+ 🧱 Build artifacts
+ .jar
+ .war
+
+ 🧠 IDE-specific files (Eclipse / VS Code)
+ .iml
+ .project
+ .classpath
+ .settings/
+ .idea/
+ .vscode/
+
+ 🧹 System files
+ .DS_Store
+ Thumbs.db
+
+ 💾 Backup or temp files
+ .log
+ .tmp
+ .bak
