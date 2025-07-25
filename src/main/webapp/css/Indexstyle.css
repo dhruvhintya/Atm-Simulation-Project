@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../Images/ForIndex.jpg");  /* Background covers entire page */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Welcome Card with Border */
+#welcome-screen {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    max-width: 400px;
+}
+
+/* Heading Style */
+#welcome-screen h1 {
+    margin-bottom: 20px;
+    color: rgba(57, 244, 219, 0.74);
+    font-size: 2em;
+}
+
+/* ATM Icon Style */
+#welcome-screen img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+/* Button Style */
+#welcome-screen button {
+    background-color: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#welcome-screen button:hover {
+    background-color: #55efc4;
+    transform: scale(1.05);
+}

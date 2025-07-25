@@ -1,0 +1,74 @@
+/* Common page layout */
+body {
+  background-image: url("../Images/ForWithdraw.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+/* Centered card container */
+.screen {
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 40px 50px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+}
+
+/* Headings */
+.screen h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #00ffb0;
+}
+
+/* Input field */
+input[type="number"] {
+  width: 80%;
+  padding: 12px;
+  font-size: 16px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+#menu{
+  margin-top: 30px;
+}
+/* Buttons */
+button {
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #019874;
+  transform: scale(1.02);
+}
+
+/* Message Styling */
+#msg {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #ff7675;
+}

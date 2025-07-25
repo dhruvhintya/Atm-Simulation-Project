@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Current Balance</title>
+    <link rel="stylesheet" href="css/BalanceStyle.css">
+</head>
+<body>
+
+    <div class="screen active">
+        <h2>Your Current Balance is:</h2>
+        <p id="balance">Loading...</p>
+        <button onclick="location.href='menu.html'">Back to Main Menu</button>
+    </div>
+
+    <script>
+        const accountNumber = localStorage.getItem("accountNumber");
+
+        if (!accountNumber) {
+            document.getElementById('balance').textContent = "Error: No account found. Please login again.";
+        } else {
+            fetch(`BalanceServlet?accountNumber=${encodeURIComponent(accountNumber)}`)
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "Invalid") {
+                        document.getElementById('balance').textContent = "Invalid Account Number.";
+                    } else if (data === "Error") {
+                        document.getElementById('balance').textContent = "Server Error! Please try again.";
+                    } else {
+                        document.getElementById('balance').textContent = `₹ ${data}`;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('balance').textContent = "Unable to fetch balance.";
+                });
+        }
+    </script>
+
+</body>
+</html>

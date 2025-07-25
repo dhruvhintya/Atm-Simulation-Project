@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM Login</title>
+    <link rel="stylesheet" href="css/LoginStyle.css">
+</head>
+<body>
+
+    <div class="screen active">
+        <h2>Enter Account Number</h2>
+
+        <form id="loginForm">
+            <input type="text" id="accountNumber" name="accountNumber" placeholder="Account Number" required>
+            <h2 id="enterpin">Enter PIN</h2>
+            <input type="password" id="pin" name="pin" placeholder="****" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="error-message" class="error-msg"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const accountNumber = document.getElementById('accountNumber').value;
+            const pin = document.getElementById('pin').value;
+
+            fetch('LoginServlet', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `accountNumber=${encodeURIComponent(accountNumber)}&pin=${encodeURIComponent(pin)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === 'success') {
+                    localStorage.setItem('accountNumber', accountNumber);
+                    window.location.href = 'menu.html';
+                } else if (data.trim() === 'invalid') {
+                    document.getElementById('error-message').textContent = "Invalid credentials. Please try again.";
+                } else {
+                    document.getElementById('error-message').textContent = "Server error. Please try again.";
+                }
+            })
+            .catch(() => {
+                document.getElementById('error-message').textContent = "Unable to connect to server.";
+            });
+        });
+    </script>
+
+</body>
+</html>

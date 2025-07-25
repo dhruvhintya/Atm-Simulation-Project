@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Withdraw Money</title>
+    <link rel="stylesheet" href="css/WithdrawStyle.css">
+</head>
+<body>
+
+    <div class="screen active">
+        <h2>Withdraw Money</h2>
+
+        <input type="number" id="amount" placeholder="Enter amount" required>
+        <p id="msg"></p>
+
+        <button onclick="withdraw()">Withdraw</button>
+        <button onclick="location.href='menu.html'">Back to Main Menu</button>
+    </div>
+
+    <script>
+    function withdraw() {
+        const amount = document.getElementById('amount').value;
+        const accountNumber = localStorage.getItem('accountNumber');
+        const msg = document.getElementById('msg');
+
+        if (!accountNumber) {
+            msg.style.color = "red";
+            msg.textContent = "Error: Please login first.";
+            return;
+        }
+
+        if (!amount || amount <= 0) {
+            msg.style.color = "red";
+            msg.textContent = "Enter a valid amount.";
+            return;
+        }
+
+        fetch('WithdrawServlet', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `accountNumber=${encodeURIComponent(accountNumber)}&amount=${encodeURIComponent(amount)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes("Withdrawn")) {
+                msg.style.color = "#57fc00"; // ✅ Success
+            } else if (data.includes("Insufficient") || data.includes("Invalid")) {
+                msg.style.color = "red";   // ❌ Error
+            } else {
+                msg.style.color = "orange"; // ⚠️ Other messages
+            }
+            msg.textContent = data;
+        })
+        .catch(() => {
+            msg.style.color = "red";
+            msg.textContent = "Unable to connect to server.";
+        });
+    }
+</script>
+    
+
+</body>
+</html>

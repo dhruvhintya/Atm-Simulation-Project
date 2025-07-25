@@ -1,0 +1,44 @@
+body{
+  	background-image: url("../Images/ForBalance.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;	
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div{
+	background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    max-width: 400px;
+}
+h2{
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #00ffb0;
+}
+p{
+    font-size: 20px;
+    color: #00ffb0;
+}
+button{
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #29a67e;
+    color: #fdfcfc;
+    cursor: pointer;
+    transition: 0.5 eargb(128, 255, 255)}
+button:hover{
+    background-color: #019874;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
